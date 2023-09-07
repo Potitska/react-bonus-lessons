@@ -1,29 +1,35 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
-import {CarsPage} from "./pages/CarsPage";
-import {CarDetailPage} from "./pages/CarDetailPage";
 import {MainLayout} from "./layouts/MainLayout";
+import {UsersPage} from "./pages/UsersPage";
+import {PostsPage} from "./pages/PostsPage";
+import {CountPage} from "./pages/CountPage";
 
-const router = createBrowserRouter([
+const router=createBrowserRouter([
     {
-        path: '',
-        element: <MainLayout/>,
-        children: [
+        path:'',
+        element:<MainLayout/>,
+        children:[
             {
                 index:true,
-                element: <Navigate to={'cars'}/>
+                element:<Navigate to={'users'}/>
             },
             {
-                path: 'cars',
-                element: <CarsPage/>,
-                children: [
-                    {
-                        path: ':id',
-                        element: <CarDetailPage/>
-                    }
-                ]
+                path:"users",
+                element:<UsersPage/>
+            },
+            {
+                path:"post",
+                element:<PostsPage/>
+            },
+            {
+                path:"count",
+                element:<CountPage/>
             }
         ]
     }
 ])
 
-export {router}
+
+export {
+    router
+}
